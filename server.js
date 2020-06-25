@@ -23,6 +23,9 @@ io.on("connection", (socket) => {
   socket.on("clear", () => {
     socket.broadcast.emit("clean");
   });
+  socket.on("reset", () => {
+    socket.broadcast.emit("clearCan");
+  });
   // socket.emit("setPlayer", sendPlayer());
   // socket.on("setWinner", (winner) => io.emit("declareWinner", winner));
 });

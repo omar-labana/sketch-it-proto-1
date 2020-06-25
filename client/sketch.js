@@ -15,6 +15,9 @@ socket.on("drawLine", (data) => {
 socket.on("clean", () => {
   points = [];
 });
+socket.on("clearCan", () => {
+  setup();
+});
 let x, y;
 start = false;
 points = [];
@@ -48,8 +51,8 @@ function mouseReleased() {
   // noLoop();
 }
 
-// setInterval(sendVec, 1500);
-const resetCan = () => {
+const resCan = () => {
+  setup();
   socket.emit("reset");
 };
-document.getElementById("reset").addEventListener("click", setup);
+document.getElementById("reset").addEventListener("click", resCan);
